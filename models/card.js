@@ -10,12 +10,11 @@ module.exports = function(sequelize, DataTypes) {
        model: "Deck",
        key: "id"
      }
-  }, {
-    classMethods: {
-      associate: function(models) {
+   }
+   });
+
+      Card.associate = (models) => {
         Card.belongsTo(models.Deck, {foreignKey: 'deckId'});
-      }
-    }
-  });
+  };
   return Card;
 };

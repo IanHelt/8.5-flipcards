@@ -3,12 +3,9 @@ module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define('User', {
     username: DataTypes.STRING,
     password: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
+});
+      User.associate = (models) => {
         User.hasMany(models.Deck, {foreignKey: 'userId'});
-      }
-    }
-  });
+  };
   return User;
 };

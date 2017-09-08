@@ -9,13 +9,11 @@ module.exports = function(sequelize, DataTypes) {
        model: "Users",
        key: "id"
      }
-  }, {
-    classMethods: {
-      associate: function(models) {
+  }
+});
+      Deck.associate = (models) => {
         Deck.belongsTo(models.User, {foreignKey: 'userId'});
         Deck.hasMany(models.Card, {foreignKey: 'deckId'});
-      }
-    }
-  });
+  };
   return Deck;
 };
